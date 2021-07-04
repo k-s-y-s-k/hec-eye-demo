@@ -1,12 +1,12 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /**
  * コマンド引数からの、ビルドタイプ指定時の定数
  */
 const ENV = {
-  "DEVELOPMENT": "DEVELOPMENT",
-  "PRODUCTION": "PRODUCTION"
+  DEVELOPMENT: 'DEVELOPMENT',
+  PRODUCTION: 'PRODUCTION',
 };
 
 const isNumber = (numberString) => Number.isNaN(Number(numberString));
@@ -17,9 +17,9 @@ const isNumber = (numberString) => Number.isNaN(Number(numberString));
 const getBuildTypes = (mode) => {
   switch (mode) {
     case ENV.DEVELOPMENT:
-      return "development";
+      return 'development';
     case ENV.PRODUCTION:
-      return "production";
+      return 'production';
     default:
       throw new Error(`not found mode ${mode}`);
   }
@@ -43,11 +43,11 @@ const getProxy = (mode) => {
  * @param buildMode 依存環境先ターゲット指定
  * @param port devServer時のポート
  */
-const main = ({ buildMode = "DEVELOPMENT", port = "3030" }) => {
+const main = ({ buildMode = 'DEVELOPMENT', port = '3030' }) => {
   // messages
-  console.log("========================");
+  console.log('========================');
   console.log(buildMode);
-  console.log("========================");
+  console.log('========================');
 
   // validation
   if (isNumber(port)) throw new Error(`port is not a number: ${port}`);
@@ -55,38 +55,38 @@ const main = ({ buildMode = "DEVELOPMENT", port = "3030" }) => {
 
   return {
     mode: mode,
-    entry: path.join(__dirname, "src", "index.ts"),
+    entry: path.join(__dirname, 'src', 'index.ts'),
     output: {
-      filename: "[name].bundle.js",
+      filename: '[name].bundle.js',
       clean: true,
     },
     module: {
       rules: [
         {
           test: /\.(ts|tsx)/,
-          loader: "ts-loader",
+          loader: 'ts-loader',
         },
       ],
     },
     resolve: {
       alias: {
-        "~": path.resolve(__dirname, 'src'),
+        '~': path.resolve(__dirname, 'src'),
       },
       extensions: [
-        ".js", //
-        ".jsx",
-        ".ts",
-        ".tsx",
-        ".json", //
+        '.js', //
+        '.jsx',
+        '.ts',
+        '.tsx',
+        '.json', //
       ],
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.join(__dirname, "public", "index.html"), //
+        template: path.join(__dirname, 'public', 'index.html'), //
       }),
     ],
     devServer: {
-      contentBase: path.join(__dirname, "dist"),
+      contentBase: path.join(__dirname, 'dist'),
       port,
       proxy: getProxy(buildMode),
       compress: true,
