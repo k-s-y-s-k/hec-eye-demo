@@ -1,0 +1,123 @@
+openapi: "3.0.2"
+info:
+  title: "HecEyeCore"
+  description: "sample api docs for test and demo"
+  version: "1.0"
+
+paths:
+  # API endpoint
+  /incident/{incidentId}:
+    get:
+      parameters:
+        - name: incidentId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    example: 19221230
+                  name:
+                    type: string
+                    example: Vladimir Lenin
+    delete:
+      parameters:
+        - name: incidentId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: deleted
+    put:
+      parameters:
+        - name: incidentId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    example: 19221230
+                  name:
+                    type: string
+                    example: Vladimir Lenin
+  /incident/:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: {}
+  /event/{eventId}:
+    get:
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK
+  /sensor:
+    get:
+      responses:
+        "200":
+          description: OK
+
+components:
+  schemas:
+    Login:
+      description: "user infos for login"
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          title: "email adress"
+          type: string
+          format: email
+          example: "lain@realglobe.jp"
+        password:
+          title: "password"
+          type: string
+          format: password
