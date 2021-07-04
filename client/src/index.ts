@@ -15,10 +15,10 @@ const MainApp = createElement(ApplyRouting, { routes: routing });
  */
 const main = () => {
   const App: FC = () => MainApp;
-  const buzz = middlewares.reduce((prev, next) => createElement(next, {}, prev), createElement(App));
   const elApp = document.getElementById('app');
   if (elApp == null) throw new Error('#app elementが存在しません。');
-  render(buzz, elApp);
+  const content = middlewares.reduce((prev, next) => createElement(next, {}, prev), createElement(App));
+  render(content, elApp);
 };
 
 main();

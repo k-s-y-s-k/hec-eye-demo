@@ -20,7 +20,6 @@ export const UserMiddleware: FC = ({ children }) => {
   return createElement(userStateContext.Provider, { value: {} }, children);
 };
 
-// 主なロジック
 /**
  * @returns hec-eyeのユーザーデータを取得するコンテキスト
  */
