@@ -107,7 +107,8 @@ $ yarn build
 | コマンド | 効果 |
 |:--:|:---|
 | start | 開発環境で起動します。 |
-| build | 青果物をdistへ生成。 |
+| build:dev | 青果物をdistへ生成。(development環境) |
+| build:prd | 青果物をdistへ生成。(production環境) |
 | lint:js | TypeScriptのコードを規約通りに記述されているか精査を実施する |
 | fix:js | TypeScriptのコードを規約通りに整形を行う |
 
