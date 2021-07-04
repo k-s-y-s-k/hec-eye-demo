@@ -7,8 +7,8 @@
     "start": "cross-env MODE=DEVELOPMENT yarn webpack serve",
     "build:dev": "cross-env MODE=DEVELOPMENT webpack",
     "build:prd": "cross-env MODE=PRODUCTION webpack",
-    "prettier": "prettier --ignore-path .gitignore --ignore-path .eslintignore --loglevel warn \"**/*.{js,jsx,ts,tsx}\" --write",
-    "eslint": "eslint --ext js,jsx,ts,tsx --ignore-path .gitignore --ignore-path .eslintignore ."
+    "prettier": "prettier --ignore-path .gitignore --ignore-path .eslintignore --loglevel warn \"**/*.{ts,tsx}\" --write",
+    "eslint": "eslint --ext ts,tsx --ignore-path .gitignore --ignore-path .eslintignore ."
   },
   "dependencies": {
     "react": "^17.0.2",
