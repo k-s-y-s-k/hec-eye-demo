@@ -1,9 +1,9 @@
 /**
  * Userの管理系コンテキスト
  */
-import { createElement, FC, useCallback } from "react";
-import { fetchLoginByIdAndPassword, fetchUserMetaData } from "~/utils/api/login";
-import { createStateContext } from "~/utils/store/createStateContext";
+import { createElement, FC, useCallback } from 'react';
+import { fetchLoginByIdAndPassword, fetchUserMetaData } from '~/utils/api/login';
+import { createStateContext } from '~/utils/store/createStateContext';
 
 /**
  * TODO: userデータのコンテキストを既存のHecEyeから引っ張ってくる
@@ -35,13 +35,16 @@ export const useGetUserValue = () => {
 export const useLogin = () => {
   const [, setValue] = userStateContext.useContextState();
   // TODO: ログインあとのCookieなり、LocalStorageなりのキャッシュを考える
-  return useCallback((id: string, passowrd: string) => {
-    fetchLoginByIdAndPassword(id, passowrd)
-      .then((userHash) => {
-        return fetchUserMetaData(userHash.hash);
-      })
-      .then((userData) => {
-        setValue(userData);
-      })
-  }, [setValue]);
+  return useCallback(
+    (id: string, passowrd: string) => {
+      fetchLoginByIdAndPassword(id, passowrd)
+        .then((userHash) => {
+          return fetchUserMetaData(userHash.hash);
+        })
+        .then((userData) => {
+          setValue(userData);
+        });
+    },
+    [setValue]
+  );
 };

@@ -1,4 +1,5 @@
-import { createElement, FC } from "react";
+import { createElement, FC } from 'react';
+import Index from '~/components/container';
 
 export interface RouterMetaData {
   path: string;
@@ -6,14 +7,13 @@ export interface RouterMetaData {
   exact?: boolean; // 完全一致かどうか
 }
 
-const DummyComponent = () => createElement('h1', {}, 'hello dummy router');
 const DummyComponent2 = () => createElement('h1', {}, 'hello dummy router 2');
 
 // RouterPropsを逆算しても可
 export const routing: RouterMetaData[] = [
   {
     path: '/',
-    children: DummyComponent,
+    children: Index,
     exact: true,
   },
   {
