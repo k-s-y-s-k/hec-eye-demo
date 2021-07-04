@@ -1,3 +1,6 @@
+/**
+ * routing管理系コンテキスト
+ */
 import { createElement, FC } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { RouterMetaData } from '~/router';
