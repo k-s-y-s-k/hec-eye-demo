@@ -5,7 +5,7 @@
     "outDir": "dist",
     "module": "ESNEXT",
     "allowJs": true,
-    "jsx": "react",                           /* Specify JSX code generation: 'preserve', 'react-native', 'react', 'react-jsx' or 'react-jsxdev'. */
+    "jsx": "react",
     "strict": true,
     "moduleResolution": "node",
     "paths": {
