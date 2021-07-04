@@ -8,6 +8,7 @@ import { createStateContext } from "~/utils/store/createStateContext";
 /**
  * TODO: userデータのコンテキストを既存のHecEyeから引っ張ってくる
  */
+
 export interface UserData {
   name?: string;
   messages?: string[];

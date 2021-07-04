@@ -15,7 +15,8 @@ export const createStateContext = <Type>(initialValue: Type,) => {
    */
   const Provider: FC<{value: Type }> = ({value, children}) => {
     const state = useState<Type>(value);
-    return createElement(context.Provider, {value: state }, {children}, )
+
+    return createElement(context.Provider, {value: state }, children)
   };
 
   /**
