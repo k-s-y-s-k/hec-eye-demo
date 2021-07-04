@@ -69,6 +69,9 @@ const main = ({ buildMode = "DEVELOPMENT", port = "3030" }) => {
       ],
     },
     resolve: {
+      alias: {
+        "~": path.resolve(__dirname, 'src'),
+      },
       extensions: [
         ".js", //
         ".jsx",
