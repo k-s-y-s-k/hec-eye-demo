@@ -1,5 +1,5 @@
 import { createElement, FC } from 'react';
-import Index from '~/components/container';
+import Index from '~/components/containers';
 
 export interface RouterMetaData {
   path: string;
